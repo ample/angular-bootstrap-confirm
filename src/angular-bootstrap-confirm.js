@@ -50,9 +50,10 @@ module.exports = angular
 
     var popoverLoaded = $templateRequest(templateUrl).then(function(template) {
       var popover = angular.element(template);
+      var el = angular.element('<div class="crds-legacy-styles"></div>').append(popover);
       popover.css('display', 'none');
       $compile(popover)(popoverScope);
-      $document.find('body').append(popover);
+      $document.find('body').append(el);
       return popover;
     });
 
